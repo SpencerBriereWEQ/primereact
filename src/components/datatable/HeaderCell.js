@@ -3,7 +3,6 @@ import {InputText} from '../inputtext/InputText';
 import classNames from 'classnames';
 import {RowCheckbox} from './RowCheckbox';
 import DomHandler from '../utils/DomHandler';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
 
 export class HeaderCell extends Component {
 
