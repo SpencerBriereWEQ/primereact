@@ -81,7 +81,7 @@ export class HeaderCell extends Component {
         return null;
     }
 
-    renderSortIcon(sorted, sortOrder, label) {
+    renderHeaderText(sorted, sortOrder, label) {
             return <TableSortLabel
                 className='p-sortable-column-icon'
                 active={sorted}
@@ -109,7 +109,7 @@ export class HeaderCell extends Component {
                         'p-resizable-column': this.props.resizableColumns,
                         'p-selection-column': this.props.selectionMode}, this.props.headerClassName||this.props.className);
 
-        let sortIconElement = this.renderSortIcon(sorted, sortOrder, this.props.header);
+        let headerTextElement = this.renderHeaderText(sorted, sortOrder, this.props.header);
 
         if(this.props.filter) {
             filterElement = this.props.filterElement||<InputText onInput={this.onFilterInput} type={this.props.filterType} defaultValue={this.props.filters && this.props.filters[this.props.field] ? this.props.filters[this.props.field].value : null}
@@ -127,7 +127,7 @@ export class HeaderCell extends Component {
                 onDragStart={this.props.onDragStart} onDragOver={this.props.onDragOver} onDragLeave={this.props.onDragLeave} onDrop={this.props.onDrop}>
                 {resizer}
                 {/* <span className="p-column-title">{this.props.header}</span> */}
-                {sortIconElement}
+                {headerTextElement}
                 {filterElement}
                 {headerCheckbox}
             </th>
