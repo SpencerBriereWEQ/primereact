@@ -82,12 +82,12 @@ export class HeaderCell extends Component {
 
     renderSortIcon(sorted, sortOrder) {
         if (this.props.sortable) {
-            let sortIcon = sorted ? sortOrder < 0 ? 'arrow_downward' : 'arrow_upward': 'pi-sort';
+            let sortIcon = sorted ? sortOrder < 0 ? 'pi-sort-down' : 'pi-sort-up': 'pi-sort';
             let sortIconClassName = classNames('pi pi-fw', sortIcon);
 
             return (
                 <a className="p-sortable-column-icon">
-                    <span className={'material-icons'}></span>
+                    <span className={sortIconClassName}></span>
                 </a>
             );
         }
