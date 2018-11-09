@@ -3,6 +3,7 @@ import {InputText} from '../inputtext/InputText';
 import classNames from 'classnames';
 import {RowCheckbox} from './RowCheckbox';
 import DomHandler from '../utils/DomHandler';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
 
 export class HeaderCell extends Component {
 
@@ -87,7 +88,10 @@ export class HeaderCell extends Component {
 
             return (
                 <a className="p-sortable-column-icon">
-                    <span className={sortIconClassName}></span>
+                    <TableSortLabel
+                    active={sorted}
+                    direction={sortOrder}
+                  />
                 </a>
             );
         }

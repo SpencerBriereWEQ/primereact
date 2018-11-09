@@ -50,5 +50,8 @@
     "compile-components": "babel src/components --out-dir components --presets es2015,react,stage-0 --copy-files",
     "build-resources": "gulp build-resources",
     "build-exports": "gulp build-exports"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.4.0"
   }
 }
