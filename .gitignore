@@ -4,7 +4,6 @@
 /public/resources/**/*.map
 /public/resources/images/
 .DS_Store
-/build
 /vscode
 /.vscode
 /idea
