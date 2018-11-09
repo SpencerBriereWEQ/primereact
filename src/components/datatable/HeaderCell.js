@@ -81,19 +81,12 @@ export class HeaderCell extends Component {
         return null;
     }
 
-    renderSortIcon(sorted, sortOrder) {
+    renderSortIcon(sorted, sortOrder, label) {
         if (this.props.sortable) {
-            let sortIcon = sorted ? sortOrder < 0 ? 'pi-sort-down' : 'pi-sort-up': 'pi-sort';
-            let sortIconClassName = classNames('pi pi-fw', sortIcon);
-
-            return (
-                <a className="p-sortable-column-icon">
-                    <TableSortLabel
-                    active={sorted}
-                    direction={sortOrder}
-                  />
-                </a>
-            );
+            return <TableSortLabel
+                active={sorted}
+                direction={sortOrder < 0 ? 'desc' : 'asc'}
+            >{label}</TableSortLabel>
         }
         else {
             return null;
@@ -119,7 +112,7 @@ export class HeaderCell extends Component {
                         'p-resizable-column': this.props.resizableColumns,
                         'p-selection-column': this.props.selectionMode}, this.props.headerClassName||this.props.className);
 
-        let sortIconElement = this.renderSortIcon(sorted, sortOrder);
+        let sortIconElement = this.renderSortIcon(sorted, sortOrder, this.props.header);
 
         if(this.props.filter) {
             filterElement = this.props.filterElement||<InputText onInput={this.onFilterInput} type={this.props.filterType} defaultValue={this.props.filters && this.props.filters[this.props.field] ? this.props.filters[this.props.field].value : null}
@@ -136,7 +129,7 @@ export class HeaderCell extends Component {
                 colSpan={this.props.colSpan} rowSpan={this.props.rowSpan}
                 onDragStart={this.props.onDragStart} onDragOver={this.props.onDragOver} onDragLeave={this.props.onDragLeave} onDrop={this.props.onDrop}>
                 {resizer}
-                <span className="p-column-title">{this.props.header}</span>
+                {/* <span className="p-column-title">{this.props.header}</span> */}
                 {sortIconElement}
                 {filterElement}
                 {headerCheckbox}
