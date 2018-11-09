@@ -84,8 +84,10 @@ export class HeaderCell extends Component {
     renderSortIcon(sorted, sortOrder, label) {
         if (this.props.sortable) {
             return <TableSortLabel
+                className='p-sortable-column-icon'
                 active={sorted}
                 direction={sortOrder < 0 ? 'desc' : 'asc'}
+                // onClick={this.onClick}
             >{label}</TableSortLabel>
         }
         else {
